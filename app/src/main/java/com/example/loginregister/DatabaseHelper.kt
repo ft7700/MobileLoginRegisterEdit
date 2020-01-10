@@ -8,8 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 
 
-val dbname = "userDB"
-val tablename = "users"
+val dbname = "userdb"
 val col_name="name"
 val col_email="email"
 val col_password="password"
@@ -21,14 +20,6 @@ val col_password="password"
                     col_name + "varchar(30)"+
                     col_email + "varchar(100)"+
                     col_password + "varchar(20)")
-                    //+ col_type + "varchar(10)")
-
-            p0?.execSQL("create table admin(id integer primary key autoincrement," +
-                    col_name + "varchar(30)"+
-                    col_email + "varchar(100)"+
-                    col_password + "varchar(20)")
-
-
         }
 
 
@@ -62,6 +53,7 @@ val col_password="password"
         values.put("password",password)
 
         val result =db.update("user",values,"id = ?", arrayOf(id))
+
         return if(result>0) {
             true
         }else {
